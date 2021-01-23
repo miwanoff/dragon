@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Dragon</h1>
-    <canvas id="dragon" width="100%" height="300"></canvas>
+    <canvas id="dragon" width="1200" height="300"></canvas>
     <script>
       let canvas; // Для canvas
       let context; // Для контекста canvas
@@ -31,6 +31,47 @@
       function drawDragon(context, x, y) {
         context.drawImage(dragon_image, x, y);
       }
+
+      // Трава
+      function drawGrass(context) {
+        context.beginPath();
+        context.strokeStyle = "#0f0";
+        context.lineWidth = 1;
+        context.moveTo(0, 205);
+        context.lineTo(canvas.width, 205);
+        context.stroke();
+      }
+
+      // Холмы
+      function drawHill(context, x, w, h) {
+        checkCollision(dragon_x, x, w);
+        context.beginPath();
+        context.strokeStyle = "#000";
+        context.lineWidth = 1;
+        let offset = 205;
+        context.moveTo(x, offset);
+        context.lineTo(x + w / 4, offset - h);
+        context.lineTo(x + (w * 3) / 4, offset - h);
+        context.lineTo(x + w, offset);
+        context.stroke();
+      }
+
+      function checkCollision(coord1, coord2, width) {
+        if (coord1 > coord2 && coord1 < coord2 + width && up == 0) {
+          alert("collision");
+          stop();
+          return;
+        }
+      }
+
+      function stop() {
+        clearInterval(timer);
+      }
+
+      //   canvas = document.getElementById("dragon");
+      //   context = canvas.getContext("2d");
+      //   drawGrass(context);
+      //   drawDragon(context, 100, 205);
     </script>
   </body>
 </html>
