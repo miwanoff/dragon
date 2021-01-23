@@ -90,6 +90,21 @@
         console.log(position_x);
       }
 
+      function start() {
+        stop();
+        timer = setInterval(animateDragon, 10, speed);
+      }
+      // Задаем обработчик события keydown
+      addEventListener("keydown", function (event) {
+        direction = directions[event.keyCode];
+        if (direction == "up") {
+          up = -80;
+          setTimeout(function () {
+            up = 0;
+          }, 600);
+        }
+      });
+
       //   canvas = document.getElementById("dragon");
       //   context = canvas.getContext("2d");
       //   drawGrass(context);
