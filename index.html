@@ -8,5 +8,16 @@
   <body>
     <h1>Dragon</h1>
     <canvas id="dragon" width="100%" height="300"></canvas>
+    <script>
+      let canvas; // Для canvas
+      let context; // Для контекста canvas
+      let position_x = screen.width; // координата x для движущихся холмов, изначально они не видны
+      let position_y = 0; // координата y для движущихся холмов
+      let speed = 2; // скорость движения холмов(на сколько будет изменяться position_x)
+      let timer; // Для setTimeout()
+      let direction; // Направление движения, задается стрелками клавиатуры
+      let up = 0; // насколько дракон переместился вверх
+      let dragon_x = 100; // координата x дракона
+    </script>
   </body>
 </html>
