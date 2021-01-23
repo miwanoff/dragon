@@ -105,6 +105,14 @@
         }
       });
 
+      window.onload = function () {
+        canvas = document.getElementById("dragon");
+        canvas.width = screen.width;
+        if (canvas && canvas.getContext) {
+          start();
+        }
+      };
+
       //   canvas = document.getElementById("dragon");
       //   context = canvas.getContext("2d");
       //   drawGrass(context);
