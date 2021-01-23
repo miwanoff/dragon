@@ -25,6 +25,12 @@
         39: "right",
         40: "down",
       };
+      let dragon_image = new Image();
+      dragon_image.src = "images/dragon1.png";
+
+      function drawDragon(context, x, y) {
+        context.drawImage(dragon_image, x, y);
+      }
     </script>
   </body>
 </html>
